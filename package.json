@@ -1,0 +1,14 @@
+{
+  "name": "perplex",
+  "version": "0.0.1",
+  "main": "index.html",
+  "repository": "git@github.com:robjtede/perplex.git",
+  "author": "Rob Ede <robjtede@icloud.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "yarn lite-server"
+  },
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  }
+}
