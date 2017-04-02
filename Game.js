@@ -3,14 +3,24 @@
 class Game {
   constructor () {
     this.n = 0;
+    this.puzzles = [];
   }
 
   start () {
     this.render();
   }
 
+  registerPuzzle (name, puzzle) {
+    this.puzzles.push(puzzle);
+
+    puzzle.name = name;
+    puzzle.id = this.n;
+    this.n++;
+  }
+
   complete (id) {
-    console.log(`completed ${id}`);
+    const puzzle = this.puzzles[id];
+    console.log(`completed ${puzzle.name} puzzle`);
     window.localStorage.setItem(`perplex-puzzle-${id}`, true);
 
     this.render();
@@ -22,11 +32,11 @@ class Game {
   }
 
   render () {
-    const puzzles = document.querySelector('.puzzles');
+    const puzzles = document.querySelector('.completion');
     puzzles.innerHTML = '';
 
     const completions = Array.from(Array(this.n)).map((puzzle, index) => {
-      const completed = !!window.localStorage.getItem(`perplex-puzzle-${index + 1}`);
+      const completed = !!window.localStorage.getItem(`perplex-puzzle-${index}`);
       return `Puzzle ${index}: ${completed}`;
     });
 

@@ -1,12 +1,13 @@
 'use strict';
 
 class Puzzle {
-  constructor (id, game) {
-    this.id = id;
+  constructor (game) {
     this.game = game;
-    this.activated = false;
 
-    this.game.n++;
+    this.id = null;
+    this.name = null;
+
+    this.activated = false;
   }
 
   activate () {
