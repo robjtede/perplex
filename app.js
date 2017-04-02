@@ -18,39 +18,6 @@ game.registerPuzzle('filedrop', 'file', new FiledropPuzzle(game));
 document.addEventListener('DOMContentLoaded', () => {
   game.start();
 
-  // this will be replaced by event handlers
-  // when each puzzle is selected. only activated
-  // puzzles can be completed
-  // Object.values(game.puzzles).forEach(puzzle => { puzzle.activate(); });
-
-  Array.from(document.querySelectorAll('.completion .puzzle')).forEach($completion => {
-    $completion.addEventListener('click', () => {
-      Array.from(document.querySelectorAll('.puzzles .puzzle')).forEach($puzzle => {
-        $puzzle.classList.remove('active');
-      });
-
-      document.querySelector('.completion').classList.add('puzzled');
-      document.querySelector('.back').classList.add('puzzled');
-      document.querySelector(`.puzzles .${$completion.dataset.name}`).classList.add('active');
-      game.puzzles.find(pz => pz.name === $completion.dataset.name).activate();
-    });
-  });
-
-  Array.from(document.querySelectorAll('.back')).forEach($back => {
-    $back.addEventListener('click', () => {
-      Array.from(document.querySelectorAll('.puzzles .puzzle')).forEach($puzzle => {
-        $puzzle.classList.remove('active');
-
-        Object.values(game.puzzles).forEach(puzzle => {
-          puzzle.deactivate();
-        });
-      });
-
-      document.querySelector('.completion').classList.remove('puzzled');
-      document.querySelector('.back').classList.remove('puzzled');
-    });
-  });
-
   // document.querySelector('.reset button').addEventListener('click', () => {
   //   game.reset();
   // });

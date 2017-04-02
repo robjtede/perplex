@@ -5,10 +5,12 @@ class MousePuzzle extends Puzzle {
   constructor (id, game) {
     super(id, game);
 
-    document.addEventListener('mousemove', ev => {
-      const x = ev.clientX;
+    this.subpuzzles = [false, false, false, false];
+  }
 
-      if (x > 500) this.complete();
+  onActivate () {
+    document.querySelector(`.puzzles .puzzle.${this.name}`).addEventListener('event', () => {
+      this.completeSubPuzzle(0);
     });
   }
 }

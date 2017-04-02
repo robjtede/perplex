@@ -35,6 +35,8 @@ class Puzzle {
     console.log(`completed subpuzzle ${id} on ${this.name} puzzle`);
     this.subpuzzles[id] = true;
 
+    document.querySelector(`.puzzles .puzzle.${this.name} .subpuzzle.sub${id}`).classList.add('completed');
+
     if (this.subpuzzles.every(val => val === true)) {
       this.complete();
     }
