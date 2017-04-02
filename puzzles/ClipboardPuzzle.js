@@ -9,14 +9,12 @@ class ClipboardPuzzle extends Puzzle {
   }
 
   onActivate () {
-    document.addEventListener('DOMContentLoaded', ev => {
-      document.addEventListener('copy', ev => {
-        this.completeSubPuzzle(0);
-      });
+    document.addEventListener('copy', ev => {
+      this.completeSubPuzzle(0);
+    });
 
-      document.addEventListener('paste', ev => {
-        this.completeSubPuzzle(1);
-      });
+    document.addEventListener('paste', ev => {
+      this.completeSubPuzzle(1);
     });
   }
 }
