@@ -3,10 +3,10 @@
 
 const game = new Game();
 
-game.registerPuzzle('mouse', new MousePuzzle(game));
-game.registerPuzzle('fullscreen', new FullscreenPuzzle(game));
-game.registerPuzzle('offline', new OfflinePuzzle(game));
-// game.registerPuzzle('notification', new NotificationPuzzle(id++, game));
+game.registerPuzzle('mouse', 'mouse-pointer', new MousePuzzle(game));
+game.registerPuzzle('fullscreen', 'arrows-alt', new FullscreenPuzzle(game));
+game.registerPuzzle('offline', 'wifi', new OfflinePuzzle(game));
+game.registerPuzzle('notification', 'bell-o', new NotificationPuzzle(game));
 
 document.addEventListener('DOMContentLoaded', () => {
   game.start();

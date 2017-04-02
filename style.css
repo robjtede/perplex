@@ -1,0 +1,52 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+:root {
+  box-sizing: border-box;
+
+  font-size: 20px;
+
+  --bgc: rgb(94, 0, 90);
+  --c: rgb(145, 0, 139);
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+
+  background-color: var(--bgc);
+}
+
+.completion {
+  height: 100vh;
+  width: 100vw;
+  padding: 1em;
+
+  display: grid;
+  grid-auto-columns: 9em;
+  grid-auto-rows: 9em;
+  grid-auto-flow: column;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-gap: 1em;
+
+  color: rgb(255, 255, 255);
+}
+
+.completion .puzzle {
+  padding: 3em;
+
+  border-radius: 10px;
+
+  color: var(--c);
+  text-align: center;
+}
+
+.completion .puzzle.complete {
+  background: var(--c);
+  color: var(--bgc);
+}
