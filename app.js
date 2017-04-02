@@ -11,6 +11,7 @@ game.registerPuzzle('scroll', 'hand-o-down', new ScrollPuzzle(game));
 game.registerPuzzle('lang', 'language', new LangPuzzle(game));
 game.registerPuzzle('clipboard', 'clipboard', new ClipboardPuzzle(game));
 game.registerPuzzle('orientation', 'mobile', new DeviceOrientationPuzzle(game));
+game.registerPuzzle('filedrop', 'file', new FiledropPuzzle(game));
 
 document.addEventListener('DOMContentLoaded', () => {
   game.start();
