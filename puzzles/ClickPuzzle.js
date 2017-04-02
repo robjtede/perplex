@@ -4,7 +4,7 @@
 class ClickPuzzle extends Puzzle {
 
   onActivate () {
-    document.querySelector('.github').addEventListener('click', ev => {
+    document.querySelector('[data-name=click]').addEventListener('click', ev => {
       this.complete();
     });
   }
