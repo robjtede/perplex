@@ -11,13 +11,17 @@ class Puzzle {
   }
 
   activate () {
-    this.activated = true;
-    this.onActivate();
+    if (!this.activated) {
+      this.activated = true;
+      this.onActivate();
+    }
   }
 
   deactivate () {
-    this.activated = false;
-    this.onDeactivate();
+    if (this.activated) {
+      this.activated = false;
+      this.onDeactivate();
+    }
   }
 
   onActivate () {

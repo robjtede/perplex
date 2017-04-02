@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // this will be replaced by event handlers
   // when each puzzle is selected. only activated
   // puzzles can be completed
-  Object.values(game.puzzles).forEach(puzzle => { puzzle.activate(); });
+  // Object.values(game.puzzles).forEach(puzzle => { puzzle.activate(); });
 
   Array.from(document.querySelectorAll('.completion .puzzle')).forEach($completion => {
     $completion.addEventListener('click', () => {
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       document.querySelector('.completion').classList.add('puzzled');
       document.querySelector(`.puzzles .${$completion.dataset.name}`).classList.add('active');
+      game.puzzles.find(pz => pz.name === $completion.dataset.name).activate();
     });
   });
 
@@ -38,6 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
     $back.addEventListener('click', () => {
       Array.from(document.querySelectorAll('.puzzles .puzzle')).forEach($puzzle => {
         $puzzle.classList.remove('active');
+
+        Object.values(game.puzzles).forEach(puzzle => {
+          puzzle.deactivate();
+        });
       });
 
       document.querySelector('.completion').classList.remove('puzzled');
