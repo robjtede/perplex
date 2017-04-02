@@ -23,7 +23,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // puzzles can be completed
   Object.values(game.puzzles).forEach(puzzle => { puzzle.activate(); });
 
-  document.querySelector('.reset button').addEventListener('click', () => {
-    game.reset();
+  Array.from(document.querySelectorAll('.completion .puzzle')).forEach($completion => {
+    $completion.addEventListener('click', () => {
+      Array.from(document.querySelectorAll('.puzzles .puzzle')).forEach($puzzle => {
+        $puzzle.classList.remove('active');
+      });
+
+      document.querySelector('.completion').classList.add('puzzled');
+      document.querySelector(`.puzzles .${$completion.dataset.name}`).classList.add('active');
+    });
   });
+
+  Array.from(document.querySelectorAll('.puzzle .back')).forEach($back => {
+    $back.addEventListener('click', () => {
+      Array.from(document.querySelectorAll('.puzzles .puzzle')).forEach($puzzle => {
+        $puzzle.classList.remove('active');
+      });
+
+      document.querySelector('.completion').classList.remove('puzzled');
+    });
+  });
+
+  // document.querySelector('.reset button').addEventListener('click', () => {
+  //   game.reset();
+  // });
 });

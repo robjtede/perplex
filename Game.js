@@ -41,6 +41,7 @@ class Game {
 
       const $completion = document.createElement('div');
 
+      $completion.dataset.name = puzzle.name;
       $completion.classList.add('puzzle');
       if (complete) $completion.classList.add('complete');
 

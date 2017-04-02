@@ -21,13 +21,4 @@ class OfflinePuzzle extends Puzzle {
 
     this.completeSubPuzzle(Number(online));
   }
-
-  completeSubPuzzle (id) {
-    console.log(`completed subpuzzle ${id} on ${this.name} puzzle`);
-    this.subpuzzles[id] = true;
-
-    if (this.subpuzzles.every(val => val === true)) {
-      this.complete();
-    }
-  }
 }
