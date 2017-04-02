@@ -101,7 +101,9 @@ h1:hover {
   max-width: 800px;
   margin: 0 auto;
   min-height: 50vh;
+}
 
+.puzzles .puzzle.subgrid {
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 6em;
   grid-auto-flow: row;
@@ -111,6 +113,10 @@ h1:hover {
 }
 
 .puzzles .puzzle.active {
+  display: block;
+}
+
+.puzzles .puzzle.subgrid.active {
   display: grid;
 }
 

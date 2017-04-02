@@ -4,6 +4,9 @@
 class FullscreenPuzzle extends Puzzle {
   constructor (id, game) {
     super(id, game);
+
+    this.subpuzzles = [false];
+
     var w = screen.width;
     var h = screen.height;
     var x = window.outerWidth;
@@ -21,7 +24,7 @@ class FullscreenPuzzle extends Puzzle {
       var y = window.outerHeight;
 
       if (x === w && y === h) {
-        this.complete();
+        this.completeSubPuzzle(0);
         console.log('fullscreen');
       };
     });

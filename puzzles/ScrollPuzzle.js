@@ -5,18 +5,20 @@ class ScrollPuzzle extends Puzzle {
   constructor (id, game) {
     super(id, game);
 
-    let x;
+    this.subpuzzles = [false];
+  }
 
-    document.addEventListener('DOMContentLoaded', ev => {
-      x = document.documentElement.scrollHeight;
-    });
-
+  onActivate () {
     window.addEventListener('scroll', ev => {
+      const x = document.documentElement.scrollHeight;
+
       const y = window.scrollY + window.innerHeight;
 
-      if (x === y) {
-        this.complete();
+      if (y >= x) {
+        this.completeSubPuzzle(0);
       }
+    }, {
+      passive: true
     });
   }
 };
