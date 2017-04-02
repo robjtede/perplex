@@ -2,6 +2,9 @@
 *::after,
 *::before {
   box-sizing: inherit;
+
+  transition: color 1s ease,
+              border-color 1s ease;
 }
 
 :root {
@@ -48,6 +51,8 @@ h1 {
 
   transition: filter 400ms ease,
               background 1s ease;
+
+  will-change: filter, background;
 }
 
 h1:hover {
