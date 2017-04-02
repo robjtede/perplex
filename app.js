@@ -13,6 +13,7 @@ game.registerPuzzle('clipboard', 'clipboard', new ClipboardPuzzle(game));
 game.registerPuzzle('orientation', 'mobile', new DeviceOrientationPuzzle(game));
 game.registerPuzzle('click', 'github', new ClickPuzzle(game));
 game.registerPuzzle('wait', 'clock-o', new WaitPuzzle(game));
+game.registerPuzzle('filedrop', 'file', new FiledropPuzzle(game));
 
 document.addEventListener('DOMContentLoaded', () => {
   game.start();
