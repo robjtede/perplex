@@ -5,7 +5,7 @@ class WaitPuzzle extends Puzzle {
   constructor (game) {
     super(game);
 
-    this.subpuzzles = [false];
+    this.subpuzzles = [false, false, false, false];
   }
 
   onActivate () {

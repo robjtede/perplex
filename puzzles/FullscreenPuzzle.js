@@ -6,7 +6,9 @@ class FullscreenPuzzle extends Puzzle {
     super(id, game);
 
     this.subpuzzles = [false];
+  }
 
+  onActivate () {
     var w = screen.width;
     var h = screen.height;
     var x = window.outerWidth;
@@ -14,7 +16,6 @@ class FullscreenPuzzle extends Puzzle {
 
     if (x === w && y === h) {
       this.complete();
-      console.log('fullscreen');
     };
 
     window.addEventListener('resize', ev => {

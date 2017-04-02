@@ -6,7 +6,9 @@ class ClipboardPuzzle extends Puzzle {
     super(id, game);
 
     this.subpuzzles = [false, false];
+  }
 
+  onActivate () {
     document.addEventListener('DOMContentLoaded', ev => {
       document.addEventListener('copy', ev => {
         this.completeSubPuzzle(0);

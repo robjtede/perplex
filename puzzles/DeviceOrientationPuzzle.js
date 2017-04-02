@@ -5,8 +5,10 @@ class DeviceOrientationPuzzle extends Puzzle {
   constructor (id, game) {
     super(id, game);
 
-    this.subpuzzles = [false, false];
+    this.subpuzzles = [false, false, false, false];
+  }
 
+  onActivate () {
     window.addEventListener('deviceorientation', e => {
       /*
         face down: {absolute: undefined, alpha: 232.77287226536586, beta: -179.7372314622933, gamma: 0.33115210230672654}

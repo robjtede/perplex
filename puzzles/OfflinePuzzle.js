@@ -6,6 +6,12 @@ class OfflinePuzzle extends Puzzle {
     super(id, game);
 
     this.subpuzzles = [false, false];
+  }
+
+  onActivate () {
+    const online = navigator.onLine;
+
+    this.completeSubPuzzle(Number(online));
 
     window.addEventListener('offline', () => {
       this.completeSubPuzzle(0);
@@ -14,11 +20,5 @@ class OfflinePuzzle extends Puzzle {
     window.addEventListener('online', () => {
       this.completeSubPuzzle(1);
     });
-  }
-
-  onActivate () {
-    const online = navigator.onLine;
-
-    this.completeSubPuzzle(Number(online));
   }
 }
