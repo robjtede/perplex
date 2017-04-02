@@ -1,4 +1,4 @@
-/* global Game:false MousePuzzle:false FullscreenPuzzle:false OfflinePuzzle:false NotificationPuzzle:false */
+/* global Game:false MousePuzzle:false FullscreenPuzzle:false OfflinePuzzle:false NotificationPuzzle:false ScrollPuzzle:false */
 'use strict';
 
 const game = new Game();
@@ -6,7 +6,8 @@ const game = new Game();
 game.registerPuzzle('mouse', new MousePuzzle(game));
 game.registerPuzzle('fullscreen', new FullscreenPuzzle(game));
 game.registerPuzzle('offline', new OfflinePuzzle(game));
-// game.registerPuzzle('notification', new NotificationPuzzle(id++, game));
+game.registerPuzzle('notification', new NotificationPuzzle(game));
+game.registerPuzzle('scroll', new ScrollPuzzle(game));
 
 document.addEventListener('DOMContentLoaded', () => {
   game.start();
