@@ -8,12 +8,10 @@ class NotificationPuzzle extends Puzzle {
     this.subpuzzles = [false];
     this.granted = window.Notification.permission === 'granted';
 
-    window.Notification
-      .requestPermission()
-      .then(result => {
-        this.granted = window.Notification.permission === 'granted';
-        if (result !== 'granted') throw new Error('You must allow notifications to solve this puzzle.');
-      });
+    window.Notification.requestPermission(result => {
+      this.granted = window.Notification.permission === 'granted';
+      if (result !== 'granted') throw new Error('You must allow notifications to solve this puzzle.');
+    });
   }
 
   onActivate () {
