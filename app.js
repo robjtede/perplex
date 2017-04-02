@@ -1,4 +1,4 @@
-/* global Game:false MousePuzzle:false FullscreenPuzzle:false OfflinePuzzle:false NotificationPuzzle:false ScrollPuzzle:false LangPuzzle:false ClipboardPuzzle:false DeviceOrientationPuzzle:false */
+/* global Game:false MousePuzzle:false FullscreenPuzzle:false OfflinePuzzle:false NotificationPuzzle:false ScrollPuzzle:false LangPuzzle:false ClipboardPuzzle:false DeviceOrientationPuzzle:false ClickPuzzle:false */
 'use strict';
 
 const game = new Game();
@@ -11,6 +11,7 @@ game.registerPuzzle('scroll', 'hand-o-down', new ScrollPuzzle(game));
 game.registerPuzzle('lang', 'language', new LangPuzzle(game));
 game.registerPuzzle('clipboard', 'clipboard', new ClipboardPuzzle(game));
 game.registerPuzzle('orientation', 'mobile', new DeviceOrientationPuzzle(game));
+game.registerPuzzle('click', 'github', new ClickPuzzle(game));
 
 document.addEventListener('DOMContentLoaded', () => {
   game.start();
