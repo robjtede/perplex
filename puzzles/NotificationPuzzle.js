@@ -5,6 +5,7 @@ class NotificationPuzzle extends Puzzle {
   constructor (id, game) {
     super(id, game);
 
+    this.subpuzzles = [false];
     this.granted = window.Notification.permission === 'granted';
 
     window.Notification
@@ -32,7 +33,7 @@ class NotificationPuzzle extends Puzzle {
               const n5 = new Notification('oh, you wanted the solution instead?');
               n5.addEventListener('click', ev => {
                 n5.close();
-                this.complete();
+                this.completeSubPuzzle(0);
                 const n6 = new Notification('there you go. happy?');
                 n6.addEventListener('click', ev => {
                   n6.close();

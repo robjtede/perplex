@@ -5,6 +5,8 @@ class DeviceOrientationPuzzle extends Puzzle {
   constructor (id, game) {
     super(id, game);
 
+    this.subpuzzles = [false, false];
+
     window.addEventListener('deviceorientation', e => {
       /*
         face down: {absolute: undefined, alpha: 232.77287226536586, beta: -179.7372314622933, gamma: 0.33115210230672654}
@@ -19,7 +21,10 @@ class DeviceOrientationPuzzle extends Puzzle {
         gamma: e.gamma
       });
       */
-      if (e.beta < -178 && e.beta > -182) this.complete();
+      if (e.beta < -178 && e.beta > -182) this.completeSubPuzzle(0);
+      if (e.beta < 2 && e.beta > -2) this.completeSubPuzzle(1);
+      if (e.gamma < -88 && e.gamma > -92) this.completeSubPuzzle(2);
+      if (e.gamma < 92 && e.gamma > 88) this.completeSubPuzzle(3);
     });
   }
 }
