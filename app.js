@@ -15,4 +15,8 @@ fullScreenPuzzle.activate();
 
 document.addEventListener('DOMContentLoaded', () => {
   game.start();
+
+  document.querySelector('.reset button').addEventListener('click', () => {
+    game.reset();
+  });
 });

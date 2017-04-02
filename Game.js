@@ -13,12 +13,17 @@ class Game {
     console.log(`completed ${id}`);
     window.localStorage.setItem(`perplex-puzzle-${id}`, true);
 
-    document.querySelector('.puzzles').innerHTML = '';
+    this.render();
+  }
+
+  reset () {
+    window.localStorage.clear();
     this.render();
   }
 
   render () {
     const puzzles = document.querySelector('.puzzles');
+    puzzles.innerHTML = '';
 
     const completions = Array.from(Array(this.n)).map((puzzle, index) => {
       const completed = !!window.localStorage.getItem(`perplex-puzzle-${index + 1}`);
