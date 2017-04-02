@@ -10,9 +10,11 @@ class Game {
     this.render();
   }
 
-  registerPuzzle (name, icon, puzzle) {
+  registerPuzzle (name, icon, bgc, c, puzzle) {
     this.puzzles.push(puzzle);
 
+    puzzle.bgc = bgc;
+    puzzle.c = c;
     puzzle.name = name;
     puzzle.icon = icon;
     puzzle.id = this.n;
@@ -63,7 +65,13 @@ class Game {
         document.querySelector('.completion').classList.add('puzzled');
         document.querySelector('.back').classList.add('puzzled');
         document.querySelector(`.puzzles .${$completion.dataset.name}`).classList.add('active');
-        this.puzzles.find(pz => pz.name === $completion.dataset.name).activate();
+
+        const nextPuzzle = this.puzzles.find(pz => pz.name === $completion.dataset.name);
+        nextPuzzle.activate();
+        if (nextPuzzle.bgc && nextPuzzle.c) {
+          document.documentElement.style.setProperty(`--bgc`, nextPuzzle.bgc);
+          document.documentElement.style.setProperty(`--c`, nextPuzzle.c);
+        }
       });
     });
 
@@ -79,6 +87,9 @@ class Game {
 
         document.querySelector('.completion').classList.remove('puzzled');
         document.querySelector('.back').classList.remove('puzzled');
+
+        document.documentElement.style.setProperty(`--bgc`, 'rgb(94, 0, 90)');
+        document.documentElement.style.setProperty(`--c`, 'rgb(150, 0, 139)');
       });
     });
   }
