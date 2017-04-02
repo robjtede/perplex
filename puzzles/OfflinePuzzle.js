@@ -5,9 +5,29 @@ class OfflinePuzzle extends Puzzle {
   constructor (id, game) {
     super(id, game);
 
+    this.subpuzzles = [false, false];
+
     window.addEventListener('offline', () => {
-      // const condition = navigator.onLine ? 'online' : 'offline';
-      this.complete();
+      this.completeSubPuzzle(0);
     });
+
+    window.addEventListener('online', () => {
+      this.completeSubPuzzle(1);
+    });
+  }
+
+  onActivate () {
+    const online = navigator.onLine;
+
+    this.completeSubPuzzle(Number(online));
+  }
+
+  completeSubPuzzle (id) {
+    console.log(`completed subpuzzle ${id} on puzzle ${this.id}`);
+    this.subpuzzles[id] = true;
+
+    if (this.subpuzzles.every(val => val === true)) {
+      this.complete();
+    }
   }
 }

@@ -10,16 +10,16 @@ const fullScreenPuzzle = new FullscreenPuzzle(id++, game);
 const offlinePuzzle = new OfflinePuzzle(id++, game);
 const notificationPuzzle = new NotificationPuzzle(id++, game);
 
-// this will be replaced by event handlers
-// when each puzzle is selected. only activated
-// puzzles can be completed
-mousePuzzle.activate();
-fullScreenPuzzle.activate();
-offlinePuzzle.activate();
-notificationPuzzle.activate();
-
 document.addEventListener('DOMContentLoaded', () => {
   game.start();
+
+  // these will be replaced by event handlers
+  // when each puzzle is selected. only activated
+  // puzzles can be completed
+  mousePuzzle.activate();
+  fullScreenPuzzle.activate();
+  offlinePuzzle.activate();
+  notificationPuzzle.activate();
 
   document.querySelector('.reset button').addEventListener('click', () => {
     game.reset();
