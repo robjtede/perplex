@@ -1,4 +1,4 @@
-/* global Game:false MousePuzzle:false FullscreenPuzzle:false*/
+/* global Game:false MousePuzzle:false FullscreenPuzzle:false */
 'use strict';
 
 const game = new Game();
