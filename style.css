@@ -95,16 +95,35 @@ h1:hover {
 
   width: 100vw;
   min-height: 50vh;
+
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 5em;
+  grid-auto-flow: row;
+  justify-items: center;
+  align-items: center;
+  grid-gap: 1em;
 }
 
 .puzzles .puzzle.active {
   display: grid;
 }
 
-.puzzles .puzzle .back {
+.back {
+  display: none;
   padding-left: 0.5em;
 
   font-size: 1.2em;
   text-decoration: none;
   color: white;
+}
+
+.back.puzzled {
+  display: inline-block;
+}
+
+.puzzles .puzzle .subpuzzle {
+  padding: 2em;
+  margin: 1em;
+
+  background-color: red;
 }

@@ -30,12 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       document.querySelector('.completion').classList.add('puzzled');
+      document.querySelector('.back').classList.add('puzzled');
       document.querySelector(`.puzzles .${$completion.dataset.name}`).classList.add('active');
       game.puzzles.find(pz => pz.name === $completion.dataset.name).activate();
     });
   });
 
-  Array.from(document.querySelectorAll('.puzzle .back')).forEach($back => {
+  Array.from(document.querySelectorAll('.back')).forEach($back => {
     $back.addEventListener('click', () => {
       Array.from(document.querySelectorAll('.puzzles .puzzle')).forEach($puzzle => {
         $puzzle.classList.remove('active');
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       document.querySelector('.completion').classList.remove('puzzled');
+      document.querySelector('.back').classList.remove('puzzled');
     });
   });
 
