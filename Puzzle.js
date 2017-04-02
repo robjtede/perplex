@@ -5,6 +5,8 @@ class Puzzle {
     this.id = id;
     this.game = game;
     this.activated = false;
+
+    this.game.n++;
   }
 
   activate () {

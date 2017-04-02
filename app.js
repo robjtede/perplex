@@ -12,3 +12,7 @@ const fullScreenPuzzle = new FullscreenPuzzle(id++, game);
 // puzzles can be completed
 mousePuzzle.activate();
 fullScreenPuzzle.activate();
+
+document.addEventListener('DOMContentLoaded', () => {
+  game.start();
+});
