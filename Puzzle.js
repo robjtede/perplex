@@ -11,10 +11,19 @@ class Puzzle {
 
   activate () {
     this.activated = true;
+    this.onActivate();
   }
 
   deactivate () {
     this.activated = false;
+    this.onDeactivate();
+  }
+
+  onActivate () {
+    // throw new Error('this method must be overriden');
+  }
+  onDeactivate () {
+    // throw new Error('this method must be overriden');
   }
 
   complete () {
